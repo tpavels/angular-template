@@ -19,7 +19,7 @@ jobs:
     - name: Install Dependencies
       run: npm install
     - name: Run tests
-      run: npm run test --no-watch --no-progress --browsers=ChromeHeadless
+      run: npm run test:ci
     - name: Build Angular App
       run: npm run build
     - name: Deploy to Pages
