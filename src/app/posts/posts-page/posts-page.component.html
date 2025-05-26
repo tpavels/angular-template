@@ -1,0 +1,13 @@
+<div *ngIf="(errorMessage$ | async) !== ''">
+  Error: {{ errorMessage$ | async }}
+</div>
+
+<div *ngIf="(loading$ | async) === false; else loadingElement">
+  <div>
+    <app-posts-list
+      [posts]="posts$ | async"
+    ></app-posts-list>
+  </div>
+</div>
+
+<ng-template #loadingElement>Loading...</ng-template>

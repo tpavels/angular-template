@@ -1,1 +1,17 @@
-<p>posts-list works!</p>
+<div class="card">
+      <div class="header">
+        <div>
+          <h2 class="title">Posts</h2>
+        </div>
+      </div>
+      <ul role="list">
+        <li *ngFor="let post of posts">
+          <div>
+            <div>id: {{ post.id }}</div>
+            <div>userId: {{ post.userId }}</div>
+            <div>title: {{ post.title }}</div>
+            <div>body: {{ post.body }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
