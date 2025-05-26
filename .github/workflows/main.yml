@@ -27,7 +27,7 @@ jobs:
         build_configuration: production
         base_href: /angular-template/
         deploy_branch: gh-pages 
-        angular_dist_build_folder: dist/angular-template
+        angular_dist_build_folder: dist/angular-template/browser
 
 permissions:
   contents: write # Allow write permission to GITHUB_TOKEN to commit to deploy branch.
