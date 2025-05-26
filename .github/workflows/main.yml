@@ -23,6 +23,5 @@ jobs:
     - name: Deploy to Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist/angular-template
+        token: ${{ secrets.GITHUB_TOKEN }}
+        folder: dist/angular-template
