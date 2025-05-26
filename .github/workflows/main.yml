@@ -18,11 +18,19 @@ jobs:
         node-version: 22.15.1
     - name: Install Dependencies
       run: npm install
+    - name: Run tests
+      run: npm run test --no-watch --no-progress --browsers=ChromeHeadless
     - name: Build Angular App
       run: npm run build
     - name: Deploy to Pages
-      uses: JamesIves/github-pages-deploy-action@v4
+      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
       with:
-        GITHUB_TOKEN: ${{ secrets.GH_TRAINING_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist/angular-template
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+        build_configuration: production
+        base_href: /angular-template/
+        deploy_branch: gh-pages 
+        angular_dist_build_folder: dist/angular-template/browser
+
+permissions:
+  contents: write
+
