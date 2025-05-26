@@ -22,7 +22,7 @@ jobs:
       run: npm run build
     - name: Deploy to gh pages
       run: |
-        npx angular-cli-ghpages --dir=dist/angular-template
+        npx angular-cli-ghpages --base-href=/angular-template/
       env:
         CI: true
         GH_TOKEN: ${{ secrets.GH_TRAINING_TOKEN }}
