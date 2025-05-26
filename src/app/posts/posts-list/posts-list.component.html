@@ -1,17 +1,15 @@
-<div class="card">
-      <div class="header">
-        <div>
-          <h2 class="title">Posts</h2>
-        </div>
-      </div>
-      <ul role="list">
-        <li *ngFor="let post of posts">
-          <div>
-            <div>id: {{ post.id }}</div>
-            <div>userId: {{ post.userId }}</div>
-            <div>title: {{ post.title }}</div>
-            <div>body: {{ post.body }}</div>
-          </div>
-        </li>
-      </ul>
-    </div>
+<div class="posts-list">
+  <div class="post-item" *ngFor="let post of posts">
+    <mat-card appearance="outlined">
+      <mat-card-title>{{ post.title }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ post.body }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="showComments(post)">
+          Show Comments ({{ 0 }})
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

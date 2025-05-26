@@ -8,6 +8,7 @@ import { provideEffects } from '@ngrx/effects';
 import { postsFeature } from './app/posts/state/posts.reducer';
 import { PostsEffects } from './app/posts/state/posts.effects';
 import { provideHttpClient } from '@angular/common/http';
+import { provideRouterStore } from '@ngrx/router-store';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -18,6 +19,7 @@ bootstrapApplication(AppComponent, {
       maxAge: 25,
       logOnly: false
     }),
+    provideRouterStore(),
     provideState(postsFeature),
     provideEffects(PostsEffects),
   ]
