@@ -18,6 +18,8 @@ jobs:
         node-version: 22.15.1
     - name: Install Dependencies
       run: npm install
+    - name: Run tests
+      run: npm run test --no-watch --no-progress --browsers=ChromeHeadless
     - name: Build Angular App
       run: npm run build
     - name: Deploy to Pages
@@ -30,5 +32,5 @@ jobs:
         angular_dist_build_folder: dist/angular-template/browser
 
 permissions:
-  contents: write # Allow write permission to GITHUB_TOKEN to commit to deploy branch.
+  contents: write
 
