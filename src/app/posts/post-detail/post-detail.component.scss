@@ -1,0 +1,32 @@
+.back-container {
+    padding: 24px 0;
+    display: flex;
+
+    button[mat-fab] {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+    }
+}
+
+.post-card-container {
+    margin-bottom: 32px;
+}
+
+.comments-card-container {
+    margin-top: 12px;
+}
+
+.comment-content {
+    word-break: break-word;
+    white-space: pre-line;
+    width: 60%;
+    background: none;
+
+}
+
+.comment-card {
+    background: #fff;
+    margin-bottom: 12px;
+}

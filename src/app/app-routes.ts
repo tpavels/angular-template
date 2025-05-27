@@ -1,13 +1,19 @@
 import { Routes } from '@angular/router';
-import { PostsService } from './posts/posts.service';
+import { PostService } from './posts/post.service';
+import { GbookPageComponent } from './gbook/gbook-page/gbook-page.component';
 
-export const appRoutes: Routes = [
+export const routes: Routes = [
     {
         path: '',
         loadChildren: () =>
             import('./posts/posts.routes').then((mod) => mod.routes),
         providers: [
-            PostsService
+            PostService
         ],
+    },
+    {
+        path: 'guestbook',
+        component: GbookPageComponent
+        ,
     },
 ];

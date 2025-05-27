@@ -1,27 +1,32 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
-import { appRoutes } from './app/app-routes';
+import { routes } from './app/app-routes';
 import { AppComponent } from './app/app.component';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
 import { postsFeature } from './app/posts/state/posts.reducer';
+import { commentsFeature } from './app/comments/state/comments.reducer';
 import { PostsEffects } from './app/posts/state/posts.effects';
+import { CommentsEffects } from './app/comments/state/comments.effects';
 import { provideHttpClient } from '@angular/common/http';
-import { provideRouterStore } from '@ngrx/router-store';
+import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(appRoutes),
     provideHttpClient(),
-    provideStore({}),
+    provideStore({
+      router: routerReducer,
+    }),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: false
     }),
     provideRouterStore(),
+    provideRouter(routes),
     provideState(postsFeature),
-    provideEffects(PostsEffects),
+    provideState(commentsFeature),
+    provideEffects(PostsEffects, CommentsEffects),
   ]
 })
   .catch(err => console.error(err));

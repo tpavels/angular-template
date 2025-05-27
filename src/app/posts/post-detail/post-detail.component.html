@@ -1,0 +1,37 @@
+<div class="back-container">
+  <button mat-fab (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    Back
+  </button>
+</div>
+
+<div class="post-card-container">
+  <mat-card *ngIf="post">
+    <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ post.body }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="comments-card-container" *ngIf="(loadingComments$ | async) === false; else loadingElement">
+  <mat-card *ngIf="comments?.length; else noComments">
+    <mat-card-title>Comments</mat-card-title>
+    <mat-card-content>
+      <ng-container *ngFor="let comment of comments">
+        <mat-card class="comment-card">
+          <div class="comment-content">
+            <strong>{{ comment.name }}</strong>
+            <p>{{ comment.body }}</p>
+          </div>
+        </mat-card>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #noComments>
+  <p>No comments yet.</p>
+</ng-template>
+
+<ng-template #loadingElement>Loading comments...</ng-template>

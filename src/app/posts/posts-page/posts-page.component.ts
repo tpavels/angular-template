@@ -16,12 +16,6 @@ export class PostsPageComponent {
   loading$ = this.store.select(selectPostsLoading);
   errorMessage$ = this.store.select(selectPostsErrorMessage);
 
-  constructor(private store: Store) {
-    this.store.subscribe((state) => console.log('state', state));
-   }
-
-  ngOnInit() {
-    this.store.dispatch(PostsPageActions.loadPosts());
-  }
+  constructor(private store: Store) { }
 
 }

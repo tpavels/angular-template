@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Post } from '../post.model';
 import { NgFor } from '@angular/common';
 import { MatCard, MatCardActions, MatCardContent, MatCardTitle } from '@angular/material/card';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts-list',
@@ -12,7 +13,9 @@ import { MatCard, MatCardActions, MatCardContent, MatCardTitle } from '@angular/
 export class PostsListComponent {
   @Input() posts: Post[] | null = [];
 
-  showComments(post: Post) {
-    //todo
+  constructor(private router: Router) {}
+
+  showPost(post: Post) {
+    this.router.navigate(['./post', post.id]);
   }
 }

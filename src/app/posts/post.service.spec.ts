@@ -1,21 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { PostsService } from './posts.service';
+import { PostService } from './post.service';
 import { environment } from 'src/environments/environment';
 import { Post } from './post.model';
 
 describe('PostsService', () => {
-  let service: PostsService;
+  let service: PostService;
   let httpMock: HttpTestingController;
-  const apiUrl = environment.postsApiUrl + '/posts';
+  const apiUrl = environment.apiUrl + '/posts';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [PostsService]
+      providers: [PostService]
     });
-    service = TestBed.inject(PostsService);
+    service = TestBed.inject(PostService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
