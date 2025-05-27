@@ -5,6 +5,7 @@ import { Post } from '../post.model';
 import { Store } from '@ngrx/store';
 import { Comment } from 'src/app/comments/comment.model';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButton } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { selectCommentsLoading } from 'src/app/comments/state/comments.selectors';
 
@@ -16,7 +17,8 @@ import { selectCommentsLoading } from 'src/app/comments/state/comments.selectors
     NgIf,
     NgFor,
     MatIconModule,
-    AsyncPipe
+    AsyncPipe,
+    MatButton
   ],
   templateUrl: './post-detail.component.html',
   styleUrl: './post-detail.component.scss'
