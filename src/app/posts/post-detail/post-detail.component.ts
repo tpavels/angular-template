@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Post } from '../post.model';
 import { Store } from '@ngrx/store';
 import { Comment } from 'src/app/comments/comment.model';
@@ -17,7 +17,6 @@ import { selectCommentsLoading } from 'src/app/comments/state/comments.selectors
     NgIf,
     NgFor,
     MatIconModule,
-    AsyncPipe,
     MatButton
   ],
   templateUrl: './post-detail.component.html',
@@ -25,9 +24,8 @@ import { selectCommentsLoading } from 'src/app/comments/state/comments.selectors
 })
 export class PostsDetailComponent {
   @Input() post: Post | undefined;
-  @Input() comments: Comment[] | null = [] ;
-  loadingComments$ = this.store.select(selectCommentsLoading);
-
+  @Input() comments: Comment[] | null = [];
+  loadingComments = this.store.selectSignal(selectCommentsLoading);
 
   constructor(private store: Store, private router: Router) { }
 

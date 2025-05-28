@@ -14,7 +14,7 @@ describe('PostsPageComponent', () => {
       imports: [PostsPageComponent],
       providers: [{ provide: Store, useValue: storeSpy }]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PostsPageComponent);
     component = fixture.componentInstance;

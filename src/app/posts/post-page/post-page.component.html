@@ -1,12 +1,10 @@
-<div *ngIf="(errorMessage$ | async) !== ''">
-    Error: {{ errorMessage$ | async }}
+<div *ngIf="(errorMessage() !== '')">
+    Error: {{ errorMessage() }}
 </div>
 
-<div class="post-card-container" *ngIf="(loading$ | async) === false; else loadingElement">
+<div class="post-card-container" *ngIf="loading() === false; else loadingElement">
     <ng-container *ngIf="post(); else postNotFound">
-        <app-posts-detail
-            [post]="post()"
-            [comments]="comments$ | async">
+        <app-posts-detail [post]="post()" [comments]="comments()">
         </app-posts-detail>
     </ng-container>
 </div>

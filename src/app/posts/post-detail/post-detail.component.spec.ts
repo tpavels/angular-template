@@ -15,7 +15,7 @@ describe('PostsDetailComponent', () => {
         { provide: Router, useValue: { navigate: jasmine.createSpy('navigate') } }
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PostsDetailComponent);
     component = fixture.componentInstance;

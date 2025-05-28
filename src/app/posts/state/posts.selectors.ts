@@ -15,8 +15,8 @@ export const selectPostsErrorMessage = createSelector(
 );
 
 export const selectPosts = createSelector(
-  selectPostsState,
-  ({ posts }) => posts
+    selectPostsState,
+    ({ posts }) => posts
 );
 
 export const { selectRouteParams } = getRouterSelectors();
