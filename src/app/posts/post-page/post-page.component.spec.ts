@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { PostPageComponent } from './post-page.component';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 describe('PostPageComponent', () => {

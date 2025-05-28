@@ -11,6 +11,7 @@ import { PostsEffects } from './app/posts/state/posts.effects';
 import { CommentsEffects } from './app/comments/state/comments.effects';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
+import { environment } from './environments/environment';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -20,7 +21,7 @@ bootstrapApplication(AppComponent, {
     }),
     provideStoreDevtools({
       maxAge: 25,
-      logOnly: false
+      logOnly: environment.production
     }),
     provideRouterStore(),
     provideRouter(routes),
