@@ -8,7 +8,7 @@
         <p>{{ post.body }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-flat-button (click)="showPost(post)">
+        <button mat-flat-button [routerLink]="['/post', post.id]">
           Read More
         </button>
       </mat-card-actions>

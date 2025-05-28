@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PostPageComponent } from './post-page.component';
 import { provideMockStore } from '@ngrx/store/testing';
-import { selectPostById, selectPostsErrorMessage, selectPostsLoading } from '../../../store/post/posts.selectors';
-import { selectComments } from 'src/app/comments/state/comments.selectors';
+import { selectComments } from 'src/app/store/comment/comments.selectors';
+import { selectPostById, selectPostsErrorMessage, selectPostsLoading } from 'src/app/store/post/posts.selectors';
 
 
 describe('PostPageComponent', () => {

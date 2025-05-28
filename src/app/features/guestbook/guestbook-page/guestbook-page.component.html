@@ -1,1 +1,13 @@
-<p>guestbook-page works!</p>
+<h1 class="mat-h1">Guest Book</h1>
+
+<div *ngIf="(errorMessage !== '')">
+  Error: {{ errorMessage }}
+</div>
+
+<div *ngIf="loading === false; else loadingElement">
+  <div>
+    <app-guestbook-list [guestPosts]="guestPosts()"></app-guestbook-list>
+  </div>
+</div>
+
+<ng-template #loadingElement>Loading...</ng-template>

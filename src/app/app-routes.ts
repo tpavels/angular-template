@@ -7,8 +7,20 @@ import { commentsFeature } from './store/comment/comments.reducer';
 import { PostsEffects } from './store/post/posts.effects';
 import { CommentsEffects } from './store/comment/comments.effects';
 import { GuestbookPageComponent } from './features/guestbook/guestbook-page/guestbook-page.component';
+import { GuestbookService } from './features/guestbook/guestbook.service';
+import { guestbookFeature } from './store/guestbook/guestbook.reducer';
+import { GuestbookEffects } from './store/guestbook/guestbook.effects';
 
 export const routes: Routes = [
+    {
+        path: 'guestbook',
+        component: GuestbookPageComponent,
+        providers: [
+            GuestbookService,
+            provideState(guestbookFeature),
+            provideEffects(GuestbookEffects),
+        ],
+    },
     {
         path: '',
         loadChildren: () =>
@@ -19,10 +31,5 @@ export const routes: Routes = [
             provideState(commentsFeature),
             provideEffects(PostsEffects, CommentsEffects),
         ],
-    },
-    {
-        path: 'guestbook',
-        component: GuestbookPageComponent
-        ,
     },
 ];
