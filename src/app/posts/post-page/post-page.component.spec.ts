@@ -1,32 +1,44 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideMockStore } from '@ngrx/store/testing';
 import { PostPageComponent } from './post-page.component';
-import { Store } from '@ngrx/store';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { selectPostById, selectPostsErrorMessage, selectPostsLoading } from '../state/posts.selectors';
+import { selectComments } from 'src/app/comments/state/comments.selectors';
+
 
 describe('PostPageComponent', () => {
   let component: PostPageComponent;
   let fixture: ComponentFixture<PostPageComponent>;
+  let store: MockStore;
+
+  const initialState = {
+    posts: {
+      loading: false,
+      errorMessage: '',
+      entities: [],
+      ids: []
+    },
+    comments: {
+      comments: []
+    }
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PostPageComponent],
       providers: [
-        provideMockStore(),
-        {
-          provide: Store,
-          useValue: {
-            select: jasmine.createSpy('select'),
-            selectSignal: jasmine.createSpy('selectSignal').and.returnValue(() => ({
-              id: 1,
-              userId: 1,
-              title: 'Test',
-              body: 'Test body'
-            })),
-            dispatch: jasmine.createSpy('dispatch')
-          }
-        }
+        provideMockStore({ 
+          initialState,
+          selectors: [
+            { selector: selectPostsLoading, value: false },
+            { selector: selectPostsErrorMessage, value: '' },
+            { selector: selectPostById, value: null },
+            { selector: selectComments, value: [] }
+          ]
+        })
       ]
     }).compileComponents();
+
+    store = TestBed.inject(MockStore);
     fixture = TestBed.createComponent(PostPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -36,4 +48,3 @@ describe('PostPageComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

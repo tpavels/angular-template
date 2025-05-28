@@ -19,7 +19,6 @@ export class CommentService {
             .pipe(catchError(this.handleError));
     }
 
-
     private handleError({ status }: HttpErrorResponse) {
         return throwError(
             () => `${status}: ERROR - Unable to fetch posts`

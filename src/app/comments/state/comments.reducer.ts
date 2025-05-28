@@ -1,37 +1,44 @@
 import { createFeature, createReducer, on } from "@ngrx/store";
 import { CommentsAPIActions, CommentsPageActions } from "./comments.actions";
 import { Comment } from "src/app/comments/comment.model";
+import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
 
-export interface CommentsState {
+export interface CommentsState extends EntityState<Comment> {
     loading: boolean;
     errorMessage: string;
-    comments: Comment[];
 }
-const initialState: CommentsState = {
+
+const adapter: EntityAdapter<Comment> = createEntityAdapter<Comment>({});
+
+const initialState: CommentsState = adapter.getInitialState({
     loading: false,
     errorMessage: '',
-    comments: [],
-};
+});
+
+const { selectAll } = adapter.getSelectors();
+export const selectAllComments = selectAll;
 
 export const commentsFeature = createFeature({
     name: 'comments',
     reducer: createReducer(
         initialState,
-        on(CommentsPageActions.loadComments, (state) => ({
-            ...state,
-            loading: true,
-            errorMessage: '',
-            comments: [],
-        })),
-        on(CommentsAPIActions.commentsLoadedSuccess, (state, { comments }) => ({
-            ...state,
-            loading: false,
-            comments: comments,
-        })),
-        on(CommentsAPIActions.commentsLoadedFail, (state, { message }) => ({
-            ...state,
-            errorMessage: message,
-            loading: false,
-        })),
+        on(CommentsPageActions.loadPostComments, (state) =>
+            adapter.setAll([], {
+                ...state,
+                loading: true,
+                errorMessage: '',
+            })),
+        on(CommentsAPIActions.postCommentsLoadedSuccess, (state, { comments }) =>
+            adapter.setAll(comments, {
+                ...state,
+                loading: false,
+                comments: comments,
+            })),
+        on(CommentsAPIActions.postCommentsLoadedFail, (state, { message }) =>
+            adapter.setAll([], {
+                ...state,
+                errorMessage: message,
+                loading: false,
+            })),
     ),
 });

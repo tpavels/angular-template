@@ -18,11 +18,12 @@ export class PostPageComponent {
   post = this.store.selectSignal(selectPostById);
   comments = this.store.selectSignal(selectComments);
 
+
   constructor(private store: Store) {
     effect(() => {
-      const post = this.post();
-      if (post) {
-        this.store.dispatch(CommentsPageActions.loadComments({ post }));
+      const currentPost = this.post();
+      if (currentPost) {
+        this.store.dispatch(CommentsPageActions.loadPostComments({ post: currentPost }));
       }
     });
   }

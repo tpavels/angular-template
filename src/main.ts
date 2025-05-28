@@ -25,9 +25,6 @@ bootstrapApplication(AppComponent, {
     }),
     provideRouterStore(),
     provideRouter(routes),
-    provideState(postsFeature),
-    provideState(commentsFeature),
-    provideEffects(PostsEffects, CommentsEffects),
   ]
 })
   .catch(err => console.error(err));

@@ -14,12 +14,12 @@ export class CommentsEffects {
 
     loadComments$ = createEffect(() =>
         this.actions$.pipe(
-            ofType(CommentsPageActions.loadComments),
+            ofType(CommentsPageActions.loadPostComments),
             concatMap(({ post }) =>
                 this.commentsService.getByPost(post).pipe(
-                    map((comments) => CommentsAPIActions.commentsLoadedSuccess({ comments })),
+                    map((comments) => CommentsAPIActions.postCommentsLoadedSuccess({ comments })),
                     catchError((error) =>
-                        of(CommentsAPIActions.commentsLoadedFail({ message: error }))
+                        of(CommentsAPIActions.postCommentsLoadedFail({ message: error }))
                     )
                 )
             )
