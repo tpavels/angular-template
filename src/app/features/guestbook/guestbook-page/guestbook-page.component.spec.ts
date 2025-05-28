@@ -1,12 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { GuestbookPageComponent } from './guestbook-page.component';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 import { selectGuestbookEntries } from 'src/app/store/guestbook/guestbook.selector';
 
 describe('GuestbookPageComponent', () => {
   let component: GuestbookPageComponent;
   let fixture: ComponentFixture<GuestbookPageComponent>;
-  let store: MockStore;
 
   const mockGuestbookEntries = [
     { id: 1, name: 'Test Guest 1', message: 'Test Message 1' },
@@ -37,9 +36,8 @@ describe('GuestbookPageComponent', () => {
         })
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
-    store = TestBed.inject(MockStore);
     fixture = TestBed.createComponent(GuestbookPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
