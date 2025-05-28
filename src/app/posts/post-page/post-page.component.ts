@@ -4,7 +4,7 @@ import { selectPostsErrorMessage, selectPostsLoading, selectPostById } from '../
 import { NgIf } from '@angular/common';
 import { PostsDetailComponent } from '../post-detail/post-detail.component';
 import { selectComments } from 'src/app/comments/state/comments.selectors';
-import { CommentsPageActions } from 'src/app/comments/state/comments.actions';
+import { CommentsComponentActions } from 'src/app/comments/state/comments.actions';
 
 @Component({
   selector: 'app-post-page',
@@ -23,7 +23,7 @@ export class PostPageComponent {
     effect(() => {
       const currentPost = this.post();
       if (currentPost) {
-        this.store.dispatch(CommentsPageActions.loadPostComments({ post: currentPost }));
+        this.store.dispatch(CommentsComponentActions.loadPostComments({ post: currentPost }));
       }
     });
   }

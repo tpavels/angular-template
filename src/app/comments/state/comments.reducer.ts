@@ -1,5 +1,5 @@
 import { createFeature, createReducer, on } from "@ngrx/store";
-import { CommentsAPIActions, CommentsPageActions } from "./comments.actions";
+import { CommentsAPIActions, CommentsComponentActions } from "./comments.actions";
 import { Comment } from "src/app/comments/comment.model";
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
 
@@ -22,7 +22,7 @@ export const commentsFeature = createFeature({
     name: 'comments',
     reducer: createReducer(
         initialState,
-        on(CommentsPageActions.loadPostComments, (state) =>
+        on(CommentsComponentActions.loadPostComments, (state) =>
             adapter.setAll([], {
                 ...state,
                 loading: true,

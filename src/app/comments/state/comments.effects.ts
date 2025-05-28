@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, concatMap, map, of } from "rxjs";
 import { CommentService } from "../comment.service";
-import { CommentsAPIActions, CommentsPageActions } from "./comments.actions";
+import { CommentsAPIActions, CommentsComponentActions } from "./comments.actions";
 
 @Injectable()
 export class CommentsEffects {
@@ -14,7 +14,7 @@ export class CommentsEffects {
 
     loadComments$ = createEffect(() =>
         this.actions$.pipe(
-            ofType(CommentsPageActions.loadPostComments),
+            ofType(CommentsComponentActions.loadPostComments),
             concatMap(({ post }) =>
                 this.commentsService.getByPost(post).pipe(
                     map((comments) => CommentsAPIActions.postCommentsLoadedSuccess({ comments })),
