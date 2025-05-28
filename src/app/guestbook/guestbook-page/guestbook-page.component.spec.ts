@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GbookPageComponent } from './gbook-page.component';
+import { GuestbookPageComponent } from './guestbook-page.component';
 
-describe('GbookPageComponent', () => {
-  let component: GbookPageComponent;
-  let fixture: ComponentFixture<GbookPageComponent>;
+describe('GuestbookPageComponent', () => {
+  let component: GuestbookPageComponent;
+  let fixture: ComponentFixture<GuestbookPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GbookPageComponent]
+      imports: [GuestbookPageComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GbookPageComponent);
+    fixture = TestBed.createComponent(GuestbookPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

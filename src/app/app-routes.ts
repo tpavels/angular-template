@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { PostService } from './posts/post.service';
-import { GbookPageComponent } from './gbook/gbook-page/gbook-page.component';
+import { GuestbookPageComponent } from './guestbook/guestbook-page/guestbook-page.component';
 
 export const routes: Routes = [
     {
@@ -13,7 +13,7 @@ export const routes: Routes = [
     },
     {
         path: 'guestbook',
-        component: GbookPageComponent
+        component: GuestbookPageComponent
         ,
     },
 ];
