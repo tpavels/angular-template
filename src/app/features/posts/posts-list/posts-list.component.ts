@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Post } from '../post.model';
 import { NgFor } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { Post } from 'src/app/types/post.model';
 
 @Component({
   selector: 'app-posts-list',

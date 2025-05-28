@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { selectPosts, selectPostsErrorMessage, selectPostsLoading } from '../state/posts.selectors';
 import { Store } from '@ngrx/store';
 import { NgIf } from '@angular/common';
 import { PostsListComponent } from '../posts-list/posts-list.component';
+import { selectPosts, selectPostsErrorMessage, selectPostsLoading } from 'src/app/store/post/posts.selectors';
 
 @Component({
   selector: 'app-posts-page',

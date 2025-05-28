@@ -1,6 +1,6 @@
 import { createFeature, createReducer, on } from "@ngrx/store";
 import { PostsAPIActions, PostsPageActions } from "./posts.actions";
-import { Post } from "../post.model";
+import { Post } from "../../types/post.model";
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
 
 export interface PostsState extends EntityState<Post> {

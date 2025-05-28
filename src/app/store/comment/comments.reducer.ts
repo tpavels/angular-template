@@ -1,7 +1,7 @@
 import { createFeature, createReducer, on } from "@ngrx/store";
 import { CommentsAPIActions, CommentsComponentActions } from "./comments.actions";
-import { Comment } from "src/app/comments/comment.model";
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
+import { Comment } from "src/app/types/comment.model";
 
 export interface CommentsState extends EntityState<Comment> {
     loading: boolean;

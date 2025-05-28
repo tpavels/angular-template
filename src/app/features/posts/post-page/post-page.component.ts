@@ -1,10 +1,10 @@
 import { Component, effect } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectPostsErrorMessage, selectPostsLoading, selectPostById } from '../state/posts.selectors';
 import { NgIf } from '@angular/common';
+import { selectComments } from 'src/app/store/comment/comments.selectors';
+import { CommentsComponentActions } from 'src/app/store/comment/comments.actions';
 import { PostsDetailComponent } from '../post-detail/post-detail.component';
-import { selectComments } from 'src/app/comments/state/comments.selectors';
-import { CommentsComponentActions } from 'src/app/comments/state/comments.actions';
+import { selectPostById, selectPostsErrorMessage, selectPostsLoading } from 'src/app/store/post/posts.selectors';
 
 @Component({
   selector: 'app-post-page',

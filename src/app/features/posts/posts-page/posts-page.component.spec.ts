@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PostsPageComponent } from './posts-page.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { selectPosts, selectPostsErrorMessage, selectPostsLoading } from '../state/posts.selectors';
+import { selectPosts, selectPostsErrorMessage, selectPostsLoading } from '../../../store/post/posts.selectors';
 
 describe('PostsPageComponent', () => {
   let component: PostsPageComponent;

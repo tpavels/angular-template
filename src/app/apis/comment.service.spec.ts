@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CommentService } from './comment.service';
 import { environment } from 'src/environments/environment';
-import { Post } from '../posts/post.model';
-import { Comment } from './comment.model';
+import { Post } from '../types/post.model';
+import { Comment } from '../types/comment.model';
 
 describe('CommentService', () => {
     let service: CommentService;

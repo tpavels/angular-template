@@ -1,18 +1,18 @@
 import { Routes } from '@angular/router';
-import { PostService } from './posts/post.service';
-import { GuestbookPageComponent } from './guestbook/guestbook-page/guestbook-page.component';
-import { provideState } from '@ngrx/store';
-import { postsFeature } from './posts/state/posts.reducer';
 import { provideEffects } from '@ngrx/effects';
-import { PostsEffects } from './posts/state/posts.effects';
-import { CommentsEffects } from './comments/state/comments.effects';
-import { commentsFeature } from './comments/state/comments.reducer';
+import { provideState } from '@ngrx/store';
+import { PostService } from './apis/post.service';
+import { postsFeature } from './store/post/posts.reducer';
+import { commentsFeature } from './store/comment/comments.reducer';
+import { PostsEffects } from './store/post/posts.effects';
+import { CommentsEffects } from './store/comment/comments.effects';
+import { GuestbookPageComponent } from './features/guestbook/guestbook-page/guestbook-page.component';
 
 export const routes: Routes = [
     {
         path: '',
         loadChildren: () =>
-            import('./posts/posts.routes').then((mod) => mod.routes),
+            import('./features/posts/posts.routes').then((mod) => mod.routes),
         providers: [
             PostService,
             provideState(postsFeature),
