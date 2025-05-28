@@ -18,8 +18,8 @@
 
 <div class="comments-card-container" *ngIf="loadingComments() === false; else loadingElement">
   <mat-card *ngIf="comments?.length; else noComments">
-    <mat-card-header>
-      <mat-card-title>Comments</mat-card-title>
+    <mat-card-header class="comment-header">
+      <mat-card-title>Comments ({{ comments?.length }})</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <ng-container *ngFor="let comment of comments">

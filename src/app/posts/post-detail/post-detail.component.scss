@@ -8,15 +8,20 @@
 .comments-card-container {
     margin-top: 12px;
     font-size: small;
-}
 
-.comment-content {
-    word-break: break-word;
-    white-space: pre-line;
-    background: none;
-}
+    .comment-content {
+        word-break: break-word;
+        white-space: pre-line;
+        background: none;
+    }
 
-.comment-card {
-    background: #fff;
-    margin-bottom: 12px;
+    .comment-card {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .comment-header {
+        padding: 8px 16px;
+        border-bottom: 1px solid #e0e0e0;
+    }
 }
