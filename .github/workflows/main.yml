@@ -17,6 +17,8 @@ jobs:
         node-version: 22.15.1
     - name: Install Dependencies
       run: npm install
+    - name: Run Linter
+      run: npm run lint
     - name: Run tests
       run: npm run test:ci
     - name: Build Angular App
