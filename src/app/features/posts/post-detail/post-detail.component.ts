@@ -6,8 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { selectCommentsLoading } from 'src/app/store/comment/comments.selectors';
-import { Comment } from 'src/app/types/comment.model';
-import { Post } from 'src/app/types/post.model';
+import { Comment } from 'src/app/models/comment.model';
+import { Post } from 'src/app/models/post.model';
 
 @Component({
   selector: 'app-posts-detail',

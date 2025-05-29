@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GuestbookEntry } from '../../../types/guestbook.model';
+import { GuestbookEntry } from '../../../models/guestbook.model';
 import { NgFor } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 

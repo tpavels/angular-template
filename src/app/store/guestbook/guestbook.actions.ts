@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from "@ngrx/store";
-import { GuestbookEntry } from "src/app/types/guestbook.model";
+import { GuestbookEntry } from "src/app/models/guestbook.model";
 
 export const GuestbookPageActions = createActionGroup({
     source: 'Guestbook Page',

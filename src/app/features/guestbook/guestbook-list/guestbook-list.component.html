@@ -2,7 +2,7 @@
   <div class="guest-post-item" *ngFor="let gPost of guestPosts">
     <mat-card>
       <mat-card-header>
-        <mat-card-subtitle>{{ gPost.name }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ gPost.author.name }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="guest-post-content">
         <p>{{ gPost.message }}</p>

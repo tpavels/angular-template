@@ -8,8 +8,8 @@ describe('GuestbookPageComponent', () => {
   let fixture: ComponentFixture<GuestbookPageComponent>;
 
   const mockGuestbookEntries = [
-    { id: 1, name: 'Test Guest 1', message: 'Test Message 1' },
-    { id: 2, name: 'Test Guest 2', message: 'Test Message 2' }
+    { id: 1, author: {name: 'Test Guest 1'}, message: 'Test Message 1' },
+    { id: 2, author: {name: 'Test Guest 2'}, message: 'Test Message 2' }
   ];
 
   const initialState = {

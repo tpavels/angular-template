@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { GuestbookAPIActions, GuestbookPageActions } from "./guestbook.actions";
 import { catchError, concatMap, map, of } from 'rxjs';
-import { GuestbookService } from "src/app/features/guestbook/guestbook.service";
+import { GuestbookService } from "src/app/features/guestbook/services/guestbook.service";
 
 
 @Injectable()

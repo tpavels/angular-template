@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { PostService } from './post.service';
 import { environment } from 'src/environments/environment';
-import { Post } from '../types/post.model';
+import { Post } from '../models/post.model';
 
 describe('PostsService', () => {
   let service: PostService;
